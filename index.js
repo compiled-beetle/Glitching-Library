@@ -1,3 +1,4 @@
+const { resizeImage } = require('./functions/resizeImage');
 const { splitRGBChannels } = require('./glitches/splitRGBChannels');
 
 const glitchFunction = process.argv[2];
@@ -9,11 +10,24 @@ if (!glitchFunction || !imagePath) {
     process.exit(1);
 }
 
+let image;
+if (imagePath) {
+    console.log('Processing image:', imagePath);
+    image = await resizeImage(imagePath);
+}
+
+if (!image) {
+    console.log('Error: Image processing failed.');
+    process.exit(1);
+}
+
 switch (glitchFunction) {
     case 'split-rgb':
-        splitRGBChannels(imagePath);
+        splitRGBChannels(image);
         break;
     default:
         console.log('Invalid function.');
         break;
 }
+
+console.log('Glitch function executed successfully.');
