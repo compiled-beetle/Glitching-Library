@@ -1,6 +1,19 @@
-const { rgb } = require('./rgb');
+const { splitRGBChannels } = require('./glitches/splitRGBChannels');
 
-const glitch = process.argv[2];
-const imgPath = process.argv[3];
+const glitchFunction = process.argv[2];
+const imagePath = process.argv[3];
 
-console.log(`usage: node index.js function "/path/to/image.jpg"\n`);
+if (!glitchFunction || !imagePath) {
+    console.log('Warning: Missing required arguments.');
+    console.log('Usage:   \'node index.js function "/path/to/image.jpg"\'');
+    process.exit(1);
+}
+
+switch (glitchFunction) {
+    case 'split-rgb':
+        splitRGBChannels(imagePath);
+        break;
+    default:
+        console.log('Invalid function.');
+        break;
+}
