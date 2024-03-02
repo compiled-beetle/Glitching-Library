@@ -21,3 +21,7 @@ node_modules/
 
 # Dont track lock files
 package-lock.json
+
+# Image test files
+test.jpg
+test.png

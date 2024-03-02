@@ -1,7 +1,7 @@
 {
   "name": "glitching-library",
   "version": "0.0.1",
-  "description": "Collection of scripts to performe glitches on images.",
+  "description": "Collection of scripts to perform glitches on images.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -15,6 +15,7 @@
     "image",
     "art",
     "node",
+    "p5.js",
     "javascript"
   ],
   "author": "compiled-beetle",
